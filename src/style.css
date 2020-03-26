@@ -1,0 +1,156 @@
+/* css reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+} /*所有伪元素*/
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+body {
+  background: #eee;
+}
+.globalHeader {
+  margin: 20px;
+}
+@media (min-width: 500px) {
+  .globalHeader {
+    margin: 150px 0 50px 0;
+  }
+}
+.form {
+  display: flex;
+  justify-content: space-between;
+}
+@media (min-width: 500px) {
+  /*针对PC端的操作，只管宽度大于500px的*/
+  .form {
+    max-width: 400px; /*满足宽度大于500px时，样式会和手机版的合并*/
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.form > input {
+  width: 100%;
+  margin-right: 10px;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+.form > button {
+  white-space: nowrap; /*不折行*/
+  padding: 0 25px;
+  border-radius: 4px;
+  border: none;
+  background: #3069d8;
+  color: white;
+  font-size: 16px;
+}
+
+.globalMain {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.siteList {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  justify-content: space-between;
+}
+@media (min-width: 500px) {
+  .siteList {
+    margin-left: 0;
+    margin-right: -25px;
+    justify-content: flex-start;
+  }
+}
+.siteList > li {
+  margin-bottom: 10px;
+}
+@media (min-width: 500px) {
+  .siteList > li {
+    margin-right: 25px;
+  }
+}
+.siteList .site {
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  position: relative;
+}
+
+.siteList .site > .logo {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px;
+}
+.siteList .site > .link {
+  font-size: 14px;
+  margin-top: 8px;
+}
+.close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  font-size: 20px;
+  display: none; /*默认不出现*/
+}
+.site:hover > .close {
+  /*把鼠标扶到.site上，关闭按钮出现*/
+  display: block;
+}
+
+.close > .icon {
+}
+.siteList .addButton {
+  border: 1px solid #ddd;
+  background: white;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.icon-wrapper > .icon {
+  width: 54px;
+  height: 54px;
+}
+.text {
+  font-size: 14px;
+  margin-top: 8px;
+}
+.icon-wrapper {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
