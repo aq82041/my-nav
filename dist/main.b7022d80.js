@@ -145,7 +145,7 @@ var render = function render() {
   $siteList.find("li:not(.last)").remove(); //在渲染之前，把之前的li删掉，避免重复
 
   hashMap.forEach(function (node, index) {
-    var $li = $("<li>    \n        <div class=\"site\">\n        <div class=\"logo\">".concat(node.logo, "</div>\n        <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n        <div class='close'>              <!--\u6DFB\u52A0\u4E00\u4E2A\u5173\u95ED\u56FE\u6807-->\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-close-red\"></use>\n          </svg>\n        </div>\n        </div>    \n    </li>")).insertBefore($last);
+    var $li = $("<li class='li'>    \n        <div class=\"site\">\n       \n          <div class=\"logo\">".concat(node.logo, "</div>\n        \n        <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n        <div class='close'>              <!--\u6DFB\u52A0\u4E00\u4E2A\u5173\u95ED\u56FE\u6807-->\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-close-red\"></use>\n          </svg>\n        </div>\n        </div>    \n    </li>")).insertBefore($last);
     $li.on("click", function () {
       return window.open(node.url);
     }); //新开一个窗口，用JS代替a标签。因为用a标签，阻止冒泡不好用
@@ -153,9 +153,10 @@ var render = function render() {
     $li.on("click", ".close", function (e) {
       e.stopPropagation(); //阻止冒泡，点击关闭时不跳转页面，不触发爸爸的事件
 
-      hashMap.splice(index, 1);
-      render();
-      console.log(hashMap);
+      if (window.confirm("您确定删除该网址吗？")) {
+        hashMap.splice(index, 1);
+        render();
+      }
     });
   });
 };
@@ -196,4 +197,4 @@ $(document).on("keypress", function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.0651f919.js.map
+//# sourceMappingURL=main.b7022d80.js.map

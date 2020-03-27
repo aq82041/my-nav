@@ -25,9 +25,11 @@ const render = () => {
   //渲染hash数组
   $siteList.find("li:not(.last)").remove(); //在渲染之前，把之前的li删掉，避免重复
   hashMap.forEach((node, index) => {
-    const $li = $(`<li>    
+    const $li = $(`<li class='li'>    
         <div class="site">
-        <div class="logo">${node.logo}</div>
+       
+          <div class="logo">${node.logo}</div>
+        
         <div class="link">${simplifyUrl(node.url)}</div>
         <div class='close'>              <!--添加一个关闭图标-->
           <svg class="icon">
@@ -39,9 +41,10 @@ const render = () => {
     $li.on("click", () => window.open(node.url)); //新开一个窗口，用JS代替a标签。因为用a标签，阻止冒泡不好用
     $li.on("click", ".close", e => {
       e.stopPropagation(); //阻止冒泡，点击关闭时不跳转页面，不触发爸爸的事件
-      hashMap.splice(index, 1);
-      render();
-      console.log(hashMap);
+      if (window.confirm("您确定删除该网址吗？")) {
+        hashMap.splice(index, 1);
+        render();
+      }
     });
   });
 };
