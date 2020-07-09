@@ -122,11 +122,15 @@ var $siteList = $(".siteList");
 var $last = $siteList.find(".last");
 var x = localStorage.getItem("x"); //x目前还是字符串
 
+console.log("x");
+console.log(x);
 var xObject = JSON.parse(x); //字符串=>对象
 
+console.log("xObject");
+console.log(xObject);
 var hashMap = xObject || [{
-  logo: "A",
-  url: "https://www.acfun.cn"
+  logo: "I",
+  url: "https://www.iconfont.cn/"
 }, {
   logo: "B",
   url: "https://www.bilibili.com"
@@ -134,6 +138,8 @@ var hashMap = xObject || [{
   logo: "G",
   url: "https://github.com"
 }];
+console.log("hashMap");
+console.log(hashMap);
 
 var simplifyUrl = function simplifyUrl(url) {
   //简化下边显示的link文本
@@ -197,4 +203,4 @@ $(document).on("keypress", function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.b7022d80.js.map
+//# sourceMappingURL=main.39503ce6.js.map

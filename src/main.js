@@ -2,18 +2,22 @@ const $siteList = $(".siteList");
 const $last = $siteList.find(".last");
 
 const x = localStorage.getItem("x"); //x目前还是字符串
+console.log("x");
+console.log(x);
 const xObject = JSON.parse(x); //字符串=>对象
-
+console.log("xObject");
+console.log(xObject);
 const hashMap = xObject || [
-  { logo: "A", url: "https://www.acfun.cn" },
+  { logo: "I", url: "https://www.iconfont.cn/" },
   {
     logo: "B",
-    url: "https://www.bilibili.com"
+    url: "https://www.bilibili.com",
   },
-  { logo: "G", url: "https://github.com" }
+  { logo: "G", url: "https://github.com" },
 ];
-
-const simplifyUrl = url => {
+console.log("hashMap");
+console.log(hashMap);
+const simplifyUrl = (url) => {
   //简化下边显示的link文本
   return url
     .replace("https://", "")
@@ -39,7 +43,7 @@ const render = () => {
         </div>    
     </li>`).insertBefore($last);
     $li.on("click", () => window.open(node.url)); //新开一个窗口，用JS代替a标签。因为用a标签，阻止冒泡不好用
-    $li.on("click", ".close", e => {
+    $li.on("click", ".close", (e) => {
       e.stopPropagation(); //阻止冒泡，点击关闭时不跳转页面，不触发爸爸的事件
       if (window.confirm("您确定删除该网址吗？")) {
         hashMap.splice(index, 1);
@@ -61,7 +65,7 @@ $(".addButton").on("click", () => {
 
   hashMap.push({
     logo: simplifyUrl(url)[0].toUpperCase(),
-    url: url
+    url: url,
   });
   render();
 });
@@ -73,7 +77,7 @@ window.onbeforeunload = () => {
   localStorage.setItem("x", string); //接收key,value的形式，把hashMap存在本地
 };
 
-$(document).on("keypress", e => {
+$(document).on("keypress", (e) => {
   const { key } = e; //const key=e.key;
   for (let i = 0; i < hashMap.length; i++) {
     if (hashMap[i].logo.toLowerCase() === key) {
