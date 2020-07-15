@@ -129,14 +129,35 @@ var xObject = JSON.parse(x); //字符串=>对象
 console.log("xObject");
 console.log(xObject);
 var hashMap = xObject || [{
-  logo: "I",
-  url: "https://www.iconfont.cn/"
-}, {
   logo: "B",
-  url: "https://www.bilibili.com"
+  url: "https://www.bootcdn.cn/"
+}, {
+  logo: "C",
+  url: "https://caniuse.com/#search=grid"
+}, {
+  logo: "C",
+  url: "https://codesandbox.io/s/"
+}, {
+  logo: "E",
+  url: "https://es6.ruanyifeng.com/"
 }, {
   logo: "G",
   url: "https://github.com"
+}, {
+  logo: "I",
+  url: "https://www.iconfont.cn/"
+}, {
+  logo: "J",
+  url: "https://www.jquery123.com/"
+}, {
+  logo: "R",
+  url: "https://reactjs.org/"
+}, {
+  logo: "V",
+  url: "https://vuejs.org/index.html"
+}, {
+  logo: "W",
+  url: "https://webpack.github.io/"
 }];
 console.log("hashMap");
 console.log(hashMap);
@@ -203,4 +224,4 @@ $(document).on("keypress", function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.39503ce6.js.map
+//# sourceMappingURL=main.4d294f02.js.map
